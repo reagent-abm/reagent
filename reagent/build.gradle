@@ -84,4 +84,5 @@ publishing {
     }
 }
 
+version = System.getenv("VERSION") ?: getProperty('version')
 group = 'dev.r0bert'
