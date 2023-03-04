@@ -9,6 +9,7 @@
 plugins {
     // Apply the java-library plugin for API and implementation separation.
     id 'java-library'
+    id 'maven-publish'
 }
 
 repositories {
@@ -41,5 +42,46 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-version = '0.0.1-SNAPSHOT'
+// Publish to GitHub Packages
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/reagent-abm/reagent")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+    publications {
+        mavenJava(MavenPublication) {
+            pom {
+                name = "ReAgent"
+                description = "ReAgent is a Java library for building agent-based models."
+                url = "https://github.com/reagent-abm/reagent"
+                licenses {
+                    license {
+                        name = "The BSD 3-Clause License"
+                        url = "https://opensource.org/licenses/BSD-3-Clause"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "0xr0bert"
+                        name = "Robert Greener"
+                        email = "me@r0bert.dev"
+                    }
+                }
+                scm {
+                    connection = "scm:git:git://github.com/reagent-abm/reagent.git"
+                    developerConnection = "scm:git:ssh://github.com/reagent-abm/reagent.git"
+                    url = "https://github.com/reagent-abm/reagent"
+                }
+            }
+            from components.java
+        }
+    }
+}
+
 group = 'dev.r0bert'
