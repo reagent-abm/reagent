@@ -6,6 +6,7 @@ import dev.r0bert.reagent.core.properties.UUIDd;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
 import java.util.UUID;
@@ -56,7 +57,7 @@ public class SocialMessageSpecification implements UUIDd {
      * @author Robert Greener
      * @since v0.0.1
      */
-    public SocialMessageSpecification(final UUID uuid, final @NotNull UUID sender, final @NotNull Message payload) {
+    public SocialMessageSpecification(final @Nullable UUID uuid, final @NotNull UUID sender, final @NotNull Message payload) {
         this.uuid = uuid == null ? UUID.randomUUID() : uuid;
         this.sender = sender;
         this.payload = payload;

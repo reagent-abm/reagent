@@ -4,6 +4,7 @@ import dev.r0bert.reagent.core.agents.Agent;
 import dev.r0bert.reagent.core.messages.Message;
 import dev.r0bert.reagent.core.simulationmanager.SimulationManager;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.time.ZonedDateTime;
 import java.util.UUID;
@@ -20,21 +21,21 @@ public class WakeUpMessage implements Message {
      *
      * @since v0.0.1
      */
-    private final UUID agentUuid;
+    private final @NotNull UUID agentUuid;
 
     /**
      * The {@link UUID} of this {@link WakeUpMessage}.
      *
      * @since v0.0.1
      */
-    private final UUID uuid;
+    private final @NotNull UUID uuid;
 
     /**
      * The time that this {@link WakeUpMessage} is sent.
      *
      * @since v0.0.1
      */
-    private final ZonedDateTime wakeTime;
+    private final @NotNull ZonedDateTime wakeTime;
 
     /**
      * Create a new {@link WakeUpMessage}.
@@ -47,7 +48,7 @@ public class WakeUpMessage implements Message {
      * @author Robert Greener
      * @since v0.0.1
      */
-    public WakeUpMessage(final @NotNull SimulationManager simulationManager, final UUID uuid,
+    public WakeUpMessage(final @NotNull SimulationManager simulationManager, final @Nullable UUID uuid,
                          final @NotNull Agent agent, final @NotNull ZonedDateTime wakeTime) {
         this.uuid = uuid == null ? UUID.randomUUID() : uuid;
         this.wakeTime = wakeTime;
@@ -64,7 +65,7 @@ public class WakeUpMessage implements Message {
      * @since v0.0.1
      */
     @Override
-    public UUID getDestination() {
+    public @NotNull UUID getDestination() {
         return agentUuid;
     }
 
@@ -76,7 +77,7 @@ public class WakeUpMessage implements Message {
      * @since v0.0.1
      */
     @Override
-    public UUID getSender() {
+    public @NotNull UUID getSender() {
         return agentUuid;
     }
 
@@ -88,7 +89,7 @@ public class WakeUpMessage implements Message {
      * @since v0.0.1
      */
     @Override
-    public UUID getUUID() {
+    public @NotNull UUID getUUID() {
         return uuid;
     }
 
@@ -98,7 +99,7 @@ public class WakeUpMessage implements Message {
      * @return The time that this {@link WakeUpMessage} is sent.
      * @since v0.0.1
      */
-    public ZonedDateTime getWakeTime() {
+    public @NotNull ZonedDateTime getWakeTime() {
         return wakeTime;
     }
 

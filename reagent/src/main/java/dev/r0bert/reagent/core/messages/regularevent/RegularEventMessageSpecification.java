@@ -6,6 +6,7 @@ import dev.r0bert.reagent.core.simulationmanager.SimulationManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.time.Duration;
 import java.time.ZonedDateTime;
@@ -21,17 +22,17 @@ public class RegularEventMessageSpecification implements UUIDd {
     /**
      * The {@link Agent} that this {@link RegularEventMessage} is sent to and from.
      */
-    private final Agent agent;
+    private final @NotNull Agent agent;
 
     /**
      * The {@link UUID} of this {@link RegularEventMessageSpecification}.
      */
-    private final UUID uuid;
+    private final @NotNull UUID uuid;
 
     /**
      * The {@link Logger} for this class.
      */
-    private final static Logger logger = LogManager.getLogger(RegularEventMessageSpecification.class);
+    private final static @NotNull Logger logger = LogManager.getLogger(RegularEventMessageSpecification.class);
 
     /**
      * Create a new {@link RegularEventMessageSpecification}.
@@ -42,7 +43,7 @@ public class RegularEventMessageSpecification implements UUIDd {
      * @author Robert Greener
      * @since v0.0.1
      */
-    public RegularEventMessageSpecification(final @NotNull Agent agent, final UUID uuid) {
+    public RegularEventMessageSpecification(final @NotNull Agent agent, final @Nullable UUID uuid) {
         this.uuid = uuid == null ? UUID.randomUUID() : uuid;
         this.agent = agent;
     }
@@ -88,7 +89,7 @@ public class RegularEventMessageSpecification implements UUIDd {
      * @author Robert Greener
      * @since v0.0.1
      */
-    protected RegularEventMessage createMessage() {
+    protected @NotNull RegularEventMessage createMessage() {
         logger.atDebug().log("Creating regular event message for agent {}", agent);
         return new RegularEventMessage(agent, null);
     }
@@ -116,7 +117,7 @@ public class RegularEventMessageSpecification implements UUIDd {
      * @since v0.0.1
      */
     @Override
-    public UUID getUUID() {
+    public @NotNull UUID getUUID() {
         return uuid;
     }
 }

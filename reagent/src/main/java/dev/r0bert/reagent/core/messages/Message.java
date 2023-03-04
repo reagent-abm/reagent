@@ -1,6 +1,7 @@
 package dev.r0bert.reagent.core.messages;
 
 import dev.r0bert.reagent.core.properties.UUIDd;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;
 
@@ -18,7 +19,7 @@ public interface Message extends UUIDd {
      * @author Robert Greener
      * @since v0.0.1
      */
-    UUID getDestination();
+    @NotNull UUID getDestination();
 
     /**
      * Get the sender of the message.
@@ -27,5 +28,5 @@ public interface Message extends UUIDd {
      * @author Robert Greener
      * @since v0.0.1
      */
-    UUID getSender();
+    @NotNull UUID getSender();
 }

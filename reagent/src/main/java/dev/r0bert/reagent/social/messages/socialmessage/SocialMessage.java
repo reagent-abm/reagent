@@ -2,6 +2,7 @@ package dev.r0bert.reagent.social.messages.socialmessage;
 
 import dev.r0bert.reagent.core.messages.Message;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
 
@@ -62,7 +63,7 @@ public class SocialMessage implements Message {
      * @author Robert Greener
      * @since v0.0.1
      */
-    public SocialMessage(final @NotNull UUID destination, final @NotNull UUID sender, final UUID uuid,
+    public SocialMessage(final @NotNull UUID destination, final @NotNull UUID sender, final @Nullable UUID uuid,
                          final @NotNull Message payload) {
         this(destination, sender, uuid, payload, 1.0);
     }
