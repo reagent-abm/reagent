@@ -1,5 +1,7 @@
 package dev.r0bert.reagent.core.properties;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.UUID;
 
 /**
@@ -16,5 +18,5 @@ public interface UUIDd {
      * @author Robert Greener
      * @since v0.0.1
      */
-    UUID getUUID();
+    @NotNull UUID getUUID();
 }

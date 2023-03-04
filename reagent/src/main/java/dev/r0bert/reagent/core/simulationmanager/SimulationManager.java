@@ -22,7 +22,7 @@ public interface SimulationManager {
      * @author Robert Greener
      * @since v0.0.1
      */
-    ZonedDateTime getStartTime();
+    @NotNull ZonedDateTime getStartTime();
 
     /**
      * Get the end time of the simulation.
@@ -31,7 +31,7 @@ public interface SimulationManager {
      * @author Robert Greener
      * @since v0.0.1
      */
-    ZonedDateTime getEndTime();
+    @NotNull ZonedDateTime getEndTime();
 
     /**
      * Get the current time of the simulation.
@@ -40,7 +40,7 @@ public interface SimulationManager {
      * @author Robert Greener
      * @since v0.0.1
      */
-    ZonedDateTime getCurrentTime();
+    @NotNull ZonedDateTime getCurrentTime();
 
     /**
      * Schedule a {@link Message} to be sent at a specific time.

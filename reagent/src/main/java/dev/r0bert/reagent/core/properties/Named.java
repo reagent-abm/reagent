@@ -1,5 +1,7 @@
 package dev.r0bert.reagent.core.properties;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * This interface is used to mark classes that have a name.
  *
@@ -14,5 +16,5 @@ public interface Named {
      * @author Robert Greener
      * @since v0.0.1
      */
-    String getName();
+    @NotNull String getName();
 }

@@ -3,6 +3,7 @@ package dev.r0bert.reagent.core.messages.regularevent;
 import dev.r0bert.reagent.core.agents.Agent;
 import dev.r0bert.reagent.core.messages.Message;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
 
@@ -18,14 +19,14 @@ public class RegularEventMessage implements Message {
      *
      * @since v0.0.1
      */
-    private final UUID agentUuid;
+    private final @NotNull UUID agentUuid;
 
     /**
      * The {@link UUID} of this {@link RegularEventMessage}.
      *
      * @since v0.0.1
      */
-    private final UUID uuid;
+    private final @NotNull UUID uuid;
 
     /**
      * Create a new {@link RegularEventMessage}.
@@ -36,7 +37,7 @@ public class RegularEventMessage implements Message {
      * @author Robert Greener
      * @since v0.0.1
      */
-    public RegularEventMessage(final @NotNull Agent agent, final UUID uuid) {
+    public RegularEventMessage(final @NotNull Agent agent, final @Nullable UUID uuid) {
         this.uuid = uuid == null ? UUID.randomUUID() : uuid;
         this.agentUuid = agent.getUUID();
     }
@@ -49,7 +50,7 @@ public class RegularEventMessage implements Message {
      * @since v0.0.1
      */
     @Override
-    public UUID getDestination() {
+    public @NotNull UUID getDestination() {
         return agentUuid;
     }
 
@@ -61,7 +62,7 @@ public class RegularEventMessage implements Message {
      * @since v0.0.1
      */
     @Override
-    public UUID getSender() {
+    public @NotNull UUID getSender() {
         return agentUuid;
     }
 
@@ -73,7 +74,7 @@ public class RegularEventMessage implements Message {
      * @since v0.0.1
      */
     @Override
-    public UUID getUUID() {
+    public @NotNull UUID getUUID() {
         return uuid;
     }
 

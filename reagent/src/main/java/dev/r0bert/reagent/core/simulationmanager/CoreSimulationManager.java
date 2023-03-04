@@ -24,42 +24,42 @@ public class CoreSimulationManager implements SimulationManager {
      *
      * @since v0.0.1
      */
-    private final ZonedDateTime startTime;
+    private final @NotNull ZonedDateTime startTime;
 
     /**
      * The end time of the simulation.
      *
      * @since v0.0.1
      */
-    private final ZonedDateTime endTime;
+    private final @NotNull ZonedDateTime endTime;
 
     /**
      * The current time of the simulation.
      *
      * @since v0.0.1
      */
-    private ZonedDateTime currentTime;
+    private @NotNull ZonedDateTime currentTime;
 
     /**
      * The queue of messages to be sent.
      *
      * @since v0.0.1
      */
-    private final SortedMap<ZonedDateTime, Queue<Message>> messageQueue = new TreeMap<>();
+    private final @NotNull SortedMap<ZonedDateTime, Queue<Message>> messageQueue = new TreeMap<>();
 
     /**
      * The agents in the simulation.
      *
      * @since v0.0.1
      */
-    private final Map<UUID, Agent> agents = new LinkedHashMap<>();
+    private final @NotNull Map<UUID, Agent> agents = new LinkedHashMap<>();
 
     /**
      * The {@link Logger} for this class.
      *
      * @since v0.0.1
      */
-    private final static Logger logger = LogManager.getLogger(CoreSimulationManager.class);
+    private final static @NotNull Logger logger = LogManager.getLogger(CoreSimulationManager.class);
 
     /**
      * Create a new {@link CoreSimulationManager}.
@@ -97,17 +97,17 @@ public class CoreSimulationManager implements SimulationManager {
     }
 
     @Override
-    public ZonedDateTime getStartTime() {
+    public @NotNull ZonedDateTime getStartTime() {
         return startTime;
     }
 
     @Override
-    public ZonedDateTime getEndTime() {
+    public @NotNull ZonedDateTime getEndTime() {
         return endTime;
     }
 
     @Override
-    public ZonedDateTime getCurrentTime() {
+    public @NotNull ZonedDateTime getCurrentTime() {
         return currentTime;
     }
 
